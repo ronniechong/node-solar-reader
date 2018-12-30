@@ -12,7 +12,18 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const Layout = styled.main`
-  height: 100vh;
+`;
+
+export const Navigation = styled.div`
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+`;
+
+export const MainContent = styled.div`
+  height: calc(100vh - 80px);
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;

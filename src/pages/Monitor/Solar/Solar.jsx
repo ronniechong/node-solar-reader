@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { inject, observer } from 'mobx-react';
 import dayjs from 'dayjs';
-import { checkData, calculateKW, getColorStatus } from '../util/helpers';
-import Button from '../common/Button/Button';
-import SunIcon from '../common/icons/sun.svg';
-import HomeIcon from '../common/icons/home.svg';
-import TowerIcon from '../common/icons/tower.svg';
-import Arrow from '../common/Arrow/Arrow';
+import { checkData, calculateKW, getColorStatus } from '../../../util/helpers';
+import Button from '../../../common/Button/Button';
+import SunIcon from '../../../common/icons/sun.svg';
+import HomeIcon from '../../../common/icons/home.svg';
+import TowerIcon from '../../../common/icons/tower.svg';
+import Arrow from '../../../common/Arrow/Arrow';
 import { Layout, Container, ListItem, DisplayValue, Direction, Timestamp, ButtonRefresh } from './Solar.style';
 
 @inject('solarStore')

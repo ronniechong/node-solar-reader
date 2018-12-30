@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { inject, observer } from 'mobx-react';
-import Button from '../common/Button/Button';
-import { checkData } from '../util/helpers';
+import Button from '../../../common/Button/Button';
+import { checkData } from '../../../util/helpers';
 import {
   Layout,
   Container,
@@ -79,7 +79,7 @@ class Weather extends React.Component {
             <SecondaryWeather>
               <WeatherDesc>{data.main}</WeatherDesc>
               <WeatherMinMax>
-                Min: {data.tempMin}&deg;C<br/>Max: {data.tempMax}&deg;C
+                Max: {data.tempMax}&deg;C<br/>Min: {data.tempMin}&deg;C
               </WeatherMinMax>
             </SecondaryWeather>
           </WeatherContainer>

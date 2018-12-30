@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { LayoutContainer, RefreshIcon } from '../common/styles/common.style';
+import { LayoutContainer, RefreshIcon } from '../../../common/styles/common.style';
 
 export const Layout = styled.div`
   padding: 1rem;

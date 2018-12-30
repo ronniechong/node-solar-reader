@@ -38,7 +38,7 @@ app.get(process.env.DATAENDPOINT, async (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.send(JSON.stringify(data));
   } catch(e) {
-    res.send(`Error ${e}`);
+    res.send(JSON.stringify({ error: e }));
   }
 });
 
@@ -48,7 +48,7 @@ app.get(process.env.WEATHERENDPOINT, async (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.send(JSON.stringify(data));
   } catch(e) {
-    res.send(`Error ${e}`);
+    res.send(JSON.stringify({ error: e }));
   }
 });
 
