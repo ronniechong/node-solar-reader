@@ -7,6 +7,7 @@ const envKeys = Object.keys(env).reduce((prev, next) => {
   return prev;
 }, {});
 module.exports = {
+  devtool: 'eval-source-map',
   entry: ['./src/index.js'],
   module: {
     rules: [
@@ -15,6 +16,20 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader']
       },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: "babel-loader"
+          },
+          {
+            loader: "react-svg-loader",
+            options: {
+              jsx: true
+            }
+          }
+        ]
+      }
     ]
   },
   resolve: {
@@ -26,6 +41,7 @@ module.exports = {
     filename: 'app.js'
   },
   plugins: [
+    new webpack.SourceMapDevToolPlugin({}),
     new webpack.DefinePlugin(envKeys),
     new webpack.HotModuleReplacementPlugin()
   ],

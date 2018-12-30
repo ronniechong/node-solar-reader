@@ -6,7 +6,7 @@ class SolarStore {
   @observable isLoading;
 
   constructor() {
-    this.solarData = {};
+    this.solarData = undefined;
     this.isLoading = false;
   }
 

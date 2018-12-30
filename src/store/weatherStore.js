@@ -6,7 +6,7 @@ class WeatherStore {
   @observable isLoading;
 
   constructor() {
-    this.weatherData = {};
+    this.weatherData = undefined;
     this.isLoading = false;
   }
 
