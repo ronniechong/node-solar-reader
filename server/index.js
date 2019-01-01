@@ -1,10 +1,9 @@
+require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
 const path = require('path');
 const nodeSchedule = require('node-schedule');
 const Firebase = require('./firebase');
-
-require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 1337;
 
@@ -56,7 +55,9 @@ const recordValue = async ({ data }) => {
   return await firebase.setValue(Head.Timestamp, values);
 };
 
-
+const authUser = async () => {
+  return await firebase.authUser(process.env.FIREBASESIGNINEMAIL, process.env.FIREBASESIGNINPASSWORD);
+}
 
 // Routes
 app.get(process.env.DATAENDPOINT, async (req, res) => {
@@ -86,12 +87,33 @@ app.listen(port, () => console.log(`Server running on port ${port}!`));
 
 // Schedule
 const schedule = nodeSchedule.scheduleJob(process.env.SCHEDULE, () => {
+  console.log('Running schedule....');
+  const user = firebase.getUser();
+  const getAndSetData = () => {
+    getData()
+      .then(recordValue)
+      .then((v) => {
+        console.info('Capture complete:', v.id);
+      })
+      .catch((e) =>  console.error('Error', e));
+  }
 
-  getData()
-  .then(recordValue)
-  .then((v) => {
-    console.info('Capture complete:', v.id);
-  })
-  .catch((e) =>  console.error('Error', e));
+  if (user) {
+    console.log('user found');
+    getAndSetData();
+  } else {
+    console.log('user not found');
+    authUser()
+    .then(getAndSetData);
+  }
+
 });
 
+
+// authUser()
+//   .then(getData)
+//   .then(recordValue)
+//   .then((v) => {
+//     console.info('Capture complete:', v.id);
+//   })
+//   .catch((e) =>  console.error('Error', e));
