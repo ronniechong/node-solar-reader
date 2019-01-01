@@ -92,7 +92,6 @@ class Solar extends React.Component {
 
     return (
       <Layout>
-        {/* { JSON.stringify(this.props.solarStore.solarData) } */}
         <Container>
           <ListItem>
             <SunIcon width={60} height={60} />
@@ -121,7 +120,7 @@ class Solar extends React.Component {
           <ListItem>
             <TowerIcon width={60} height={60} />
             <DisplayValue color={grid.state}>
-            {grid.value}&nbsp;{grid.unit}
+            {Math.abs(grid.value)}&nbsp;{grid.unit}
             </DisplayValue>
           </ListItem>
           <ButtonRefresh>
