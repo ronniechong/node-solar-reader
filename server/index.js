@@ -87,7 +87,6 @@ app.listen(port, () => console.log(`Server running on port ${port}!`));
 
 // Schedule
 const schedule = nodeSchedule.scheduleJob(process.env.SCHEDULE, () => {
-  console.log('Running schedule....');
   const user = firebase.getUser();
   const getAndSetData = () => {
     getData()
@@ -99,14 +98,11 @@ const schedule = nodeSchedule.scheduleJob(process.env.SCHEDULE, () => {
   }
 
   if (user) {
-    console.log('user found');
     getAndSetData();
   } else {
-    console.log('user not found');
     authUser()
     .then(getAndSetData);
   }
-
 });
 
 
