@@ -16,7 +16,7 @@ export const Button = styled(NavLink).attrs({
 })`
   text-decoration: none;
   color: #fff;
-  padding: 1rem;
+  padding: 1rem 1rem 0.5rem;
   border-top-left-radius: 0.65rem;
   border-top-right-radius: 0.65rem;
   background-color: #B4B8C5;
@@ -24,8 +24,10 @@ export const Button = styled(NavLink).attrs({
   text-align: center;
   display: block;
   transition: all ease-in-out 0.3s;
+  min-width: 70px;
   &.${activeClassName} {
     color: #009FB7;
+    padding: 1rem;
     background-color: #EFF1F3;
   }
 `;
@@ -37,6 +39,7 @@ export const List = styled.ul`
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
+  align-items: flex-end;
 `;
 
 export const ListItem = styled.li`
