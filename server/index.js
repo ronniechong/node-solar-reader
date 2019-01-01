@@ -1,10 +1,23 @@
 const express = require('express');
 const axios = require('axios');
 const path = require('path');
+const nodeSchedule = require('node-schedule');
+const Firebase = require('./firebase');
 
 require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 1337;
+
+const config = {
+  apiKey: process.env.FIREBASEAPIKEY,
+  authDomain: process.env.FIREBASEAUTHDOMAIN,
+  databaseURL: process.env.FIREBASEDATABASEURL,
+  projectId: process.env.FIREBASEPROJECTID,
+  storageBucket: process.env.FIREBASESTORAGEBUCKET,
+  messagingSenderId: process.env.FIREBASEMSGSENDERID,
+};
+
+const firebase = new Firebase(config);
 
 app.use(express.static(path.join(__dirname + '/../app')));
 app.use(function(req, res, next) {
@@ -32,6 +45,20 @@ const getWeather = async () => {
   }
 }
 
+const recordValue = async ({ data }) => {
+  const { Head, Body } = data;
+  const { Site } = Body.Data;
+  const values = {
+    generated: (Site.P_PV === null) ? 0 : Site.P_PV,
+    grid: (Site.P_Grid === null) ? 0 : Site.P_Grid,
+    usage: (Site.P_Load === null) ? 0 : Site.P_Load,
+  };
+  return await firebase.setValue(Head.Timestamp, values);
+};
+
+
+
+// Routes
 app.get(process.env.DATAENDPOINT, async (req, res) => {
   try {
     const { data } = await getData();
@@ -56,3 +83,15 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/../app/index.html'));
 });
 app.listen(port, () => console.log(`Server running on port ${port}!`));
+
+// Schedule
+const schedule = nodeSchedule.scheduleJob(process.env.SCHEDULE, () => {
+
+  getData()
+  .then(recordValue)
+  .then((v) => {
+    console.info('Capture complete:', v.id);
+  })
+  .catch((e) =>  console.error('Error', e));
+});
+
