@@ -105,11 +105,4 @@ const schedule = nodeSchedule.scheduleJob(process.env.SCHEDULE, () => {
   }
 });
 
-
-// authUser()
-//   .then(getData)
-//   .then(recordValue)
-//   .then((v) => {
-//     console.info('Capture complete:', v.id);
-//   })
-//   .catch((e) =>  console.error('Error', e));
+schedule.cancel();

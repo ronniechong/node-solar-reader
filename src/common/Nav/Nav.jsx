@@ -1,20 +1,21 @@
 import React from 'react';
 import { observer, inject } from 'mobx-react';
-import { NavLink } from "react-router-dom";
-import { NavMenu, Button } from './Nav.style';
+import { withRouter } from 'react-router-dom';
+import { NavMenu, Button, List, ListItem } from './Nav.style';
 
 @inject('routing')
+@withRouter
 @observer
 class Nav extends React.Component {
   render() {
-    const { location } = this.props.routing;
+    // const { location } = this.props.routing;
     return (
       <NavMenu>
-        <span>Current pathname: {location.pathname}</span>
-        <ul>
-          <li><Button activeClassName="is-active" to="/monitor">Monitor</Button></li>
-          <li><Button activeClassName="is-active" to="/graph">Graph</Button></li>
-        </ul>
+        {/* <span>Current pathname: {location.pathname}</span> */}
+        <List>
+          <ListItem><Button activeClassName="is-active" to="/monitor">Monitor</Button></ListItem>
+          <ListItem><Button activeClassName="is-active" to="/graph">Graph</Button></ListItem>
+        </List>
       </NavMenu>
     );
   }
