@@ -29,6 +29,7 @@ export const DisplayValue = styled.div`
   transition: color ease-in-out 0.5s;
   text-align: center;
   font-size: 1.75rem;
+  padding-top: 0.5rem;
 `;
 
 export const Timestamp = styled.span`
