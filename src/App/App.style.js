@@ -1,7 +1,8 @@
-import styled, { createGlobalStyle } from 'styled-components';
-export const GlobalStyle = createGlobalStyle`
+import styled, {
+  createGlobalStyle
+} from 'styled-components';
+export const GlobalStyle = createGlobalStyle `
   body {
-    color: black;
     font-size: 16px;
     font-family: 'Lato', sans-serif;
     padding: 0;
@@ -11,10 +12,11 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export const Layout = styled.main`
+export const Layout = styled.main `
+  position: relative;
 `;
 
-export const Navigation = styled.div`
+export const Navigation = styled.div `
   width: 100%;
   height: 80px;
   display: flex;
@@ -22,7 +24,7 @@ export const Navigation = styled.div`
   flex-wrap: nowrap;
 `;
 
-export const MainContent = styled.div`
+export const MainContent = styled.div `
   height: calc(100vh - 80px);
   display: flex;
   flex-direction: row;

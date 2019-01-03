@@ -1,7 +1,10 @@
 import styled from 'styled-components';
-import { LayoutContainer, RefreshIcon } from '../../../common/styles/common.style';
+import {
+  LayoutContainer,
+  RefreshIcon
+} from '../../../common/styles/common.style';
 
-export const Layout = styled.div`
+export const Layout = styled.div `
   padding: 1rem;
   display: flex;
   flex-direction: row;
@@ -10,18 +13,21 @@ export const Layout = styled.div`
   justify-content: center;
 `;
 
-export const Container = styled(LayoutContainer)`
+export const Container = styled(LayoutContainer)
+`
   background-color: #FED766;
 `;
 
-export const ButtonRefresh = styled(RefreshIcon)`
+export const ButtonRefresh = styled(RefreshIcon)
+`
+  line-height: 1;
 `;
 
-export const WeatherContainer = styled.div`
+export const WeatherContainer = styled.div `
   display: flex;
   flex-direction: column;
 `;
-export const MainWeather = styled.div`
+export const MainWeather = styled.div `
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -30,16 +36,16 @@ export const MainWeather = styled.div`
   width: 100%;
 `;
 
-export const WeatherTemp = styled.div`
+export const WeatherTemp = styled.div `
   font-size: 2rem;
   padding: 0 0.25rem;
 `;
 
-export const WeatherIcon = styled.div`
+export const WeatherIcon = styled.div `
   padding: 0 0.25rem;
 `;
 
-export const SecondaryWeather = styled.div`
+export const SecondaryWeather = styled.div `
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -48,14 +54,14 @@ export const SecondaryWeather = styled.div`
   width: 100%;
 `;
 
-export const WeatherDesc = styled.div`
+export const WeatherDesc = styled.div `
   width: 100%;
   text-align: center;
   margin-bottom: 0.5rem;
   font-size: 1rem;
 `;
 
-export const WeatherMinMax = styled.div`
+export const WeatherMinMax = styled.div `
   width: 100%;
   text-align: center;
   font-size: 0.85rem;
