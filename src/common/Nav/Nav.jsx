@@ -9,6 +9,7 @@ import { NavMenu, Button, List, ListItem } from './Nav.style';
 class Nav extends React.Component {
   render() {
     const { location } = this.props.routing;
+    console.log(location.pathname);
     if (location.pathname === '/') {
       return null;
     }
@@ -16,13 +17,13 @@ class Nav extends React.Component {
       <NavMenu>
         <List>
           <ListItem>
-            <Button activeClassName="is-active" to="/">Home</Button>
+            <Button activeClassName="is-active" exact to="/">Home</Button>
           </ListItem>
           <ListItem>
-            <Button activeClassName="is-active" to="/monitor">Monitor</Button>
+            <Button activeClassName="is-active" exact to="/monitor">Monitor</Button>
           </ListItem>
           <ListItem>
-            <Button activeClassName="is-active" to="/graph">Graph</Button>
+            <Button activeClassName="is-active" exact to="/graph">Graph</Button>
           </ListItem>
         </List>
       </NavMenu>

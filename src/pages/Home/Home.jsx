@@ -22,8 +22,8 @@ class Home extends React.Component {
 
     const renderLinks = () =>
       links.map((v) => (
-        <ListItem>
-          <NavLink activeClassName="is-active" to={v.path}>
+        <ListItem key={`${v.id}`}>
+          <NavLink activeClassName="is-active" exact to={v.path}>
             {v.title}
           </NavLink>
         </ListItem>

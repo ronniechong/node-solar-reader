@@ -4,7 +4,7 @@ import { Route, withRouter } from 'react-router-dom';
 import Nav from '../common/Nav/Nav';
 import Monitor from '../pages/Monitor/Monitor';
 import Graph from '../pages/Graph/Graph';
-// import Error from '../pages/Error/Error';
+import Home from '../pages/Home/Home';
 import { observer } from 'mobx-react';
 import { GlobalStyle, Layout, Navigation, MainContent } from './App.style';
 
@@ -12,19 +12,19 @@ import { GlobalStyle, Layout, Navigation, MainContent } from './App.style';
 @observer
 export default class App extends React.Component {
   render() {
-    const Home = () => <div>Home</div>
     return (
       <Layout>
         <Navigation>
           <Nav />
         </Navigation>
         <MainContent>
-          <Route path="/monitor" render={Monitor}/>
-          <Route path="/graph" render={Graph}/>
+          <Route path="/monitor" render={Monitor} />
+          <Route path="/graph" render={Graph} />
+          <Route exact path="/" render={Home} />
         </MainContent>
         <GlobalStyle />
         {/* <DevTools /> */}
       </Layout>
     );
   }
-};
+}
