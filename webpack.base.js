@@ -6,8 +6,8 @@ const envKeys = Object.keys(env).reduce((prev, next) => {
   prev[`process.env.${next}`] = JSON.stringify(env[next]);
   return prev;
 }, {});
+
 module.exports = {
-  devtool: 'eval-source-map',
   entry: ['./src/index.js'],
   module: {
     rules: [
@@ -43,11 +43,5 @@ module.exports = {
   plugins: [
     new webpack.SourceMapDevToolPlugin({}),
     new webpack.DefinePlugin(envKeys),
-    new webpack.HotModuleReplacementPlugin()
   ],
-  devServer: {
-    contentBase: './app',
-    hot: true,
-    historyApiFallback: true,
-  }
 };
