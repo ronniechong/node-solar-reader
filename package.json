@@ -31,11 +31,17 @@
     "@babel/plugin-proposal-decorators": "^7.2.3",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "babel-plugin-styled-components": "^1.10.0",
     "mobx-react-devtools": "^6.0.3",
+    "prettier": "^1.15.3",
     "react-hot-loader": "^4.6.3",
     "react-svg-loader": "^2.1.0",
+    "stylelint": "^9.9.0",
+    "stylelint-config-recommended": "^2.1.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.5.1",
     "webpack": "^4.28.2",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.14"
@@ -43,6 +49,7 @@
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
     "build": "webpack --config ./webpack.config.js --mode production",
-    "server": "node server/index"
+    "server": "node server/index",
+    "lint:css": "stylelint './src/**/*.js'"
   }
 }
