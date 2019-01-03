@@ -7,9 +7,11 @@ import Visual from './Visual/Visual';
 @observer
 class Graph extends React.Component {
   render() {
-    return (<div><Visual/></div>);
+    return (
+      <div>
+        <Visual />
+      </div>
+    );
   }
 }
 export default Graph;
-
-// const Graph = withRouter(observer(() => <div>Graph page</div>));

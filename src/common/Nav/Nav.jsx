@@ -8,13 +8,22 @@ import { NavMenu, Button, List, ListItem } from './Nav.style';
 @observer
 class Nav extends React.Component {
   render() {
-    // const { location } = this.props.routing;
+    const { location } = this.props.routing;
+    if (location.pathname === '/') {
+      return null;
+    }
     return (
       <NavMenu>
-        {/* <span>Current pathname: {location.pathname}</span> */}
         <List>
-          <ListItem><Button activeClassName="is-active" to="/monitor">Monitor</Button></ListItem>
-          <ListItem><Button activeClassName="is-active" to="/graph">Graph</Button></ListItem>
+          <ListItem>
+            <Button activeClassName="is-active" to="/">Home</Button>
+          </ListItem>
+          <ListItem>
+            <Button activeClassName="is-active" to="/monitor">Monitor</Button>
+          </ListItem>
+          <ListItem>
+            <Button activeClassName="is-active" to="/graph">Graph</Button>
+          </ListItem>
         </List>
       </NavMenu>
     );
