@@ -83,6 +83,11 @@ app.get(process.env.WEATHERENDPOINT, async (req, res) => {
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/../app/index.html'));
 });
+
+app.get('*', (req,res) =>{
+  res.sendFile(path.join(__dirname + '/../app/index.html'));
+});
+
 app.listen(port, () => console.log(`Server running on port ${port}!`));
 
 // Schedule
