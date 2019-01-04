@@ -12,5 +12,6 @@ module.exports = merge(base, {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.SourceMapDevToolPlugin({}),
   ],
 });

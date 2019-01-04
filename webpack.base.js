@@ -46,7 +46,6 @@ module.exports = {
     chunkFilename: '[name].[hash].js',
   },
   plugins: [
-    new webpack.SourceMapDevToolPlugin({}),
     new webpack.DefinePlugin(envKeys),
     new HtmlWebpackPlugin({
       title: 'Solar',

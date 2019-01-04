@@ -12,15 +12,16 @@ module.exports = merge(base, {
     usedExports: true,
     sideEffects: true,
     minimizer: [
-        new UglifyJsPlugin({
-          uglifyOptions: {
-            compress: true,
-            mangle: false,
-            output: {
-              beautify: true
-            }
+      new UglifyJsPlugin({
+        sourceMap: true,
+        parallel: true,
+        uglifyOptions: {
+          mangle: false,
+          output: {
+            beautify: true
           },
-        })
+        },
+      })
     ],
     splitChunks: {
       cacheGroups: {
