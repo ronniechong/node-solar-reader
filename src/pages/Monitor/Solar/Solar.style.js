@@ -18,16 +18,16 @@ export const Container = styled(LayoutContainer)
   background-color: #009FB7;
 `;
 
-export const ListItem = styled.div `
+export const ListItem = styled.div`
   padding: 1.5rem;
   text-align: center;
   min-width: 110px;
 `;
-export const Direction = styled.div `
+export const Direction = styled.div`
   padding: 0;
 `;
 
-export const DisplayValue = styled.div `
+export const DisplayValue = styled.div`
   color: ${(props) => props.color};
   font-weight: bold;
   transition: color ease-in-out 0.5s;
@@ -36,7 +36,7 @@ export const DisplayValue = styled.div `
   padding-top: 0.5rem;
 `;
 
-export const Timestamp = styled.span `
+export const Timestamp = styled.span`
   bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
@@ -46,4 +46,6 @@ export const Timestamp = styled.span `
   text-align:center;
 `;
 
-export const ButtonRefresh = styled(RefreshIcon);
+export const ButtonRefresh = styled(RefreshIcon)`
+line-height: 1;
+`;

@@ -11,6 +11,6 @@ module.exports = merge(base, {
     historyApiFallback: true,
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
   ],
 });

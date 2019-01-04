@@ -2,6 +2,7 @@ import styled, {
   createGlobalStyle
 } from 'styled-components';
 export const GlobalStyle = createGlobalStyle `
+  @import url("https://fonts.googleapis.com/css?family=Lato:400,700");
   body {
     font-size: 16px;
     font-family: 'Lato', sans-serif;

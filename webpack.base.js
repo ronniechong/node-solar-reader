@@ -1,5 +1,7 @@
 const webpack = require('webpack');
 const dotenv = require('dotenv');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const env = dotenv.config().parsed;
 const envKeys = Object.keys(env).reduce((prev, next) => {
@@ -8,7 +10,9 @@ const envKeys = Object.keys(env).reduce((prev, next) => {
 }, {});
 
 module.exports = {
-  entry: ['./src/index.js'],
+  entry: {
+    app: './src/app.js',
+  },
   module: {
     rules: [
       {
@@ -36,12 +40,18 @@ module.exports = {
     extensions: ['*', '.js', '.jsx']
   },
   output: {
-    path: __dirname + '/app',
+    path: path.resolve(__dirname, 'app'),
     publicPath: '/',
-    filename: 'app.js'
+    filename: '[name].[hash].js',
+    chunkFilename: '[name].[hash].js',
   },
   plugins: [
     new webpack.SourceMapDevToolPlugin({}),
     new webpack.DefinePlugin(envKeys),
+    new HtmlWebpackPlugin({
+      title: 'Solar',
+      template: './src/index.ejs',
+      inject: 'body',
+    }),
   ],
 };

@@ -7,10 +7,7 @@ import app from 'firebase/app';
 class Visual extends React.Component {
   constructor(props) {
     super(props);
-    this.firebase = undefined;
-  }
 
-  componentDidMount() {
     const config = {
       apiKey: process.env.FIREBASEAPIKEY,
       authDomain: process.env.FIREBASEAUTHDOMAIN,
@@ -19,8 +16,13 @@ class Visual extends React.Component {
       storageBucket: process.env.FIREBASESTORAGEBUCKET,
       messagingSenderId: process.env.FIREBASEMSGSENDERID,
     };
-    this.firebase = app.initializeApp(config);
-    this.db = this.firebase.database();
+
+    // this.firebase = app;
+    // this.firebase.initializeApp(config);
+  }
+
+  componentDidMount() {
+    // this.db = this.firebase.database();
   }
 
   render() {
