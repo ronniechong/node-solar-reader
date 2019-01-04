@@ -75,5 +75,4 @@ typings/
 # FuseBox cache
 .fusebox/
 
-app/app.js
-app/app.js.map
+app/
