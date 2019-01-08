@@ -2,9 +2,10 @@ export const checkData = (data) => {
   if (!data) {
     return undefined;
   }
+
   if (data.error) {
-    console.error(data.error);
-    return data.error;
+    // console.error(data.error);
+    return { error: data.error };
   }
   return data;
 };

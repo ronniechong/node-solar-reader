@@ -54,24 +54,12 @@ class Weather extends React.Component {
     }
   }
 
-  render() {
+  renderContent() {
     const { weatherStore } = this.props;
-    const check = checkData(weatherStore.weatherData);
-
-    if (check && check.error) {
-      return <Layout>Error: {JSON.stringify(check.error)}</Layout>;
-    }
-
-    if (!check) {
-      return null;
-    }
-
     const data = this.renderData();
-
     return (
-      <Layout>
-        <Container>
-          <WeatherContainer>
+      <React.Fragment>
+        <WeatherContainer>
             <MainWeather>
               <WeatherTemp>{data.temp}&deg;C</WeatherTemp>
               <WeatherIcon>{data.icon}</WeatherIcon>
@@ -89,6 +77,25 @@ class Weather extends React.Component {
               isLoading={weatherStore.isLoading}
             />
           </ButtonRefresh>
+      </React.Fragment>
+    );
+  }
+
+  render() {
+    const { weatherStore } = this.props;
+    const check = checkData(weatherStore.weatherData);
+    if (check && check.error) {
+      return (
+        <Layout>
+          <Container>Error loading Weather</Container>
+        </Layout>
+      );
+    }
+
+    return (
+      <Layout>
+        <Container>
+          { check && this.renderContent() }
         </Container>
       </Layout>
     );

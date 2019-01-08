@@ -12,14 +12,16 @@ class SolarStore {
 
   @action async getSolar() {
     this.isLoading = true;
-    try {
-      const { data } =  await axios.get(`//${process.env.HOST}:${process.env.PORT}${process.env.DATAENDPOINT}`);
-      this.solarData = data;
-      this.isLoading = false;
-    } catch(e) {
-      this.solarData = { error: e };
-      this.isLoading = false;
-    }
+    await axios
+      .get(`//${process.env.HOST}:${process.env.PORT}${process.env.DATAENDPOINT}`)
+      .then(({ data }) => {
+        this.solarData = data;
+        this.isLoading = false;
+      })
+      .catch((e) => {
+        this.solarData = { error: e };
+        this.isLoading = false;
+      })
   }
 }
 

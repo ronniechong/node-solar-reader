@@ -76,62 +76,72 @@ class Solar extends React.Component {
     };
   }
 
+  renderContent() {
+    const { solarStore } = this.props;
+    const { timestamp, generated, usage, grid } = this.renderData();
+
+    return (
+      <React.Fragment>
+        <ListItem>
+          <SunIcon width={60} height={60} />
+          <DisplayValue color={generated.state} >
+            {generated.value}&nbsp;{generated.unit}
+          </DisplayValue>
+        </ListItem>
+        <Direction>
+          <Arrow
+            direction={generated.direction}
+            isNegative={generated.isNegative}
+          />
+        </Direction>
+        <ListItem>
+          <HomeIcon width={60} height={60} />
+          <DisplayValue color={usage.state}>
+            {Math.abs(usage.value)}&nbsp;{usage.unit}
+          </DisplayValue>
+        </ListItem>
+        <Direction>
+          <Arrow
+            direction={grid.direction}
+            isNegative={grid.isNegative}
+          />
+        </Direction>
+        <ListItem>
+          <TowerIcon width={60} height={60} />
+          <DisplayValue color={grid.state}>
+          {Math.abs(grid.value)}&nbsp;{grid.unit}
+          </DisplayValue>
+        </ListItem>
+        <ButtonRefresh>
+          <Button
+            onButtonClick={this.onButtonClick}
+            isLoading={solarStore.isLoading}
+          />
+        </ButtonRefresh>
+        <Timestamp>
+          Last update: {timestamp}
+        </Timestamp>
+      </React.Fragment>
+    );
+  }
+
   render() {
     const { solarStore } = this.props;
     const check = checkData(solarStore.solarData);
-
     if (check && check.error) {
-      return <Layout>Error: {JSON.stringify(check.error)}</Layout>;
+      return (
+        <Layout>
+          <Container>
+            Error Loading Solar data
+          </Container>
+        </Layout>
+      );
     }
-
-    if (!check) {
-      return null;
-    }
-
-    const {timestamp, generated, usage, grid } = this.renderData();
 
     return (
       <Layout>
         <Container>
-          <ListItem>
-            <SunIcon width={60} height={60} />
-            <DisplayValue color={generated.state} >
-              {generated.value}&nbsp;{generated.unit}
-            </DisplayValue>
-          </ListItem>
-          <Direction>
-            <Arrow
-              direction={generated.direction}
-              isNegative={generated.isNegative}
-            />
-          </Direction>
-          <ListItem>
-            <HomeIcon width={60} height={60} />
-            <DisplayValue color={usage.state}>
-              {Math.abs(usage.value)}&nbsp;{usage.unit}
-            </DisplayValue>
-          </ListItem>
-          <Direction>
-            <Arrow
-              direction={grid.direction}
-              isNegative={grid.isNegative}
-            />
-          </Direction>
-          <ListItem>
-            <TowerIcon width={60} height={60} />
-            <DisplayValue color={grid.state}>
-            {Math.abs(grid.value)}&nbsp;{grid.unit}
-            </DisplayValue>
-          </ListItem>
-          <ButtonRefresh>
-            <Button
-              onButtonClick={this.onButtonClick}
-              isLoading={solarStore.isLoading}
-            />
-          </ButtonRefresh>
-          <Timestamp>
-            Last update: {timestamp}
-          </Timestamp>
+          { check && this.renderContent() }
         </Container>
       </Layout>
     );

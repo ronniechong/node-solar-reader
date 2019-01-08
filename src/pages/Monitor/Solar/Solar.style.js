@@ -8,13 +8,12 @@ export const Layout = styled.div `
   padding: 1rem;
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 `;
 
-export const Container = styled(LayoutContainer)
-`
+export const Container = styled(LayoutContainer)`
   background-color: #009FB7;
 `;
 
