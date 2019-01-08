@@ -9,7 +9,6 @@ import { NavMenu, Button, List, ListItem } from './Nav.style';
 class Nav extends React.Component {
   render() {
     const { location } = this.props.routing;
-    console.log(location.pathname);
     if (location.pathname === '/') {
       return null;
     }
