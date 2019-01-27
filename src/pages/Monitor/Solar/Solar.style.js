@@ -15,6 +15,7 @@ export const Layout = styled.div `
 
 export const Container = styled(LayoutContainer)`
   background-color: #009FB7;
+  min-width: 50vw;
 `;
 
 export const ListItem = styled.div`
