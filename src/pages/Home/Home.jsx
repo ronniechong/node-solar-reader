@@ -31,7 +31,7 @@ class Home extends React.Component {
     return (
       <Container>
         <Time>
-          { dayjs(this.state.time).format('hh:mm:ss') }
+          { dayjs(this.state.time).format('h:mm:ss') }
           <AmPm>
             { dayjs(this.state.time).format('a') }
           </AmPm>
