@@ -8,10 +8,10 @@ import { NavMenu, Button, List, ListItem } from './Nav.style';
 @observer
 class Nav extends React.Component {
   render() {
-    const { location } = this.props.routing;
-    if (location.pathname === '/') {
-      return null;
-    }
+    // const { location } = this.props.routing;
+    // if (location.pathname === '/') {
+    //   return null;
+    // }
     return (
       <NavMenu>
         <List>
