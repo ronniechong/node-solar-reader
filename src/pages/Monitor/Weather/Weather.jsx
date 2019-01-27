@@ -61,7 +61,7 @@ class Weather extends React.Component {
       <React.Fragment>
         <WeatherContainer>
             <MainWeather>
-              <WeatherTemp>{data.temp}&deg;C</WeatherTemp>
+              <WeatherTemp>{Math.round(data.temp)}&deg;C</WeatherTemp>
               <WeatherIcon>{data.icon}</WeatherIcon>
             </MainWeather>
             <SecondaryWeather>
