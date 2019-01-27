@@ -2,10 +2,10 @@ import styled, {
   createGlobalStyle
 } from 'styled-components';
 export const GlobalStyle = createGlobalStyle `
-  @import url("https://fonts.googleapis.com/css?family=Lato:400,700");
+  @import url("https://fonts.googleapis.com/css?family=Libre+Franklin:400,700,800");
   body {
     font-size: 16px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Libre Franklin', sans-serif;
     padding: 0;
     margin: 0;
     color: #272727;
