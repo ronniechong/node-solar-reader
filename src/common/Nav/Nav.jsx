@@ -21,9 +21,9 @@ class Nav extends React.Component {
           <ListItem>
             <Button activeClassName="is-active" exact to="/monitor">Monitor</Button>
           </ListItem>
-          <ListItem>
+          {/* <ListItem>
             <Button activeClassName="is-active" exact to="/graph">Graph</Button>
-          </ListItem>
+          </ListItem> */}
         </List>
       </NavMenu>
     );
