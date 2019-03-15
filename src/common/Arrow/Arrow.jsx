@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 import ArrowLeftIcon from '../icons/arrowleft.svg';
 import ArrowRightIcon from '../icons/arrowright.svg';
-import { Container, Icon } from './Arrow.style';
+import { Container, Icon, Size } from './Arrow.style';
 
 const Arrow = observer((props) => {
-  const { direction, isNegative } = props;
+  const { direction, isNegative, size } = props;
   let icon = <ArrowLeftIcon width={40} height={40} />;
   if (direction === 'right') {
     icon = <ArrowRightIcon width={40} height={40} />
@@ -18,12 +18,14 @@ const Arrow = observer((props) => {
 
   return (
     <Container>
-      <Icon
-        direction={direction}
-        isNegative={isNegative}
-      >
-        {icon}
-      </Icon>
+      <Size size={size}>
+        <Icon
+          direction={direction}
+          isNegative={isNegative}
+        >
+          {icon}
+        </Icon>
+      </Size>
     </Container>
   );
 })
@@ -31,11 +33,13 @@ const Arrow = observer((props) => {
 Arrow.propTypes = {
   direction: PropTypes.string,
   isNegative: PropTypes.bool,
+  size: PropTypes.number,
 };
 
 Arrow.defaultProps = {
   direction: 'right',
   isNegative: false,
+  size: 1,
 };
 
 export default Arrow;

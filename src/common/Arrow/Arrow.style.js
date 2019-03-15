@@ -60,3 +60,7 @@ export const Container = styled.div`
   flex-wrap: nowrap;
   width: 60px;
 `;
+
+export const Size = styled.div`
+  transform: scale(${(props) => props.size });
+`;
