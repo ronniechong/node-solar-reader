@@ -26,7 +26,7 @@ export const ButtonContainer = styled.button`
 
 export const ButtonIcon = styled.div`
   ${(props) => props.isLoading ? animKeyframe : 'animation: none;'}
-  color: ${(props) => props.isLoading ? '#272727' : '#84C0C6'};
+  color: ${(props) => props.isLoading ? '#E7ECEF' : '#274C77'};
   font-size: 0;
   line-height: 1;
 `;

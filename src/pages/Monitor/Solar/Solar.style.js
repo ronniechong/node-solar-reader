@@ -19,7 +19,7 @@ export const Container = styled(LayoutContainer)`
 `;
 
 export const ListItem = styled.div`
-  padding: 1.5rem;
+  padding: 1.25rem 0.25rem;
   text-align: center;
   min-width: 110px;
 `;

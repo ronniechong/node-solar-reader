@@ -45,9 +45,9 @@ class Weather extends React.Component {
     const { main, weather } = this.props.weatherStore.weatherData;
     const iconType = weather[0];
     return {
-      temp: main.temp,
-      tempMin: main.temp_min,
-      tempMax: main.temp_max,
+      temp: Math.round(main.temp),
+      tempMin: Math.round(main.temp_min),
+      tempMax: Math.round(main.temp_max),
       main: iconType.main,
       description: iconType.description,
       icon: <img src={`http://openweathermap.org/img/w/${iconType.icon}.png`} alt={iconType.description}/>

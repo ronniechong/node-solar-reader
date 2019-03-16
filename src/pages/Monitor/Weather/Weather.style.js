@@ -15,7 +15,7 @@ export const Layout = styled.div `
 
 export const Container = styled(LayoutContainer)
 `
-  background-color: #FED766;
+  background-color: #A3CEF1;
 `;
 
 export const ButtonRefresh = styled(RefreshIcon)
@@ -49,21 +49,21 @@ export const SecondaryWeather = styled.div `
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   width: 100%;
 `;
 
 export const WeatherDesc = styled.div `
   width: 100%;
-  text-align: center;
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
+  text-align: left;
+  font-size: 1.15rem;
 `;
 
 export const WeatherMinMax = styled.div `
   width: 100%;
-  text-align: center;
-  font-size: 0.85rem;
+  text-align: left;
+  font-size: 1rem;
   color: #696773;
+  line-height: 1.5;
 `;

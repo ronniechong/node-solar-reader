@@ -4,7 +4,7 @@ export const LayoutContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
